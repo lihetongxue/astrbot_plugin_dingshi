@@ -1,21 +1,13 @@
-import asyncio
-import random
-import time
-from datetime import datetime
-import logging
 # 在 /AstrBot/data/plugins/astbot_plugin_dingshi/main.py 中
 
-# 修改导入语句
-import sys
-import os
-sys.path.append("/AstrBot")  # 添加项目根目录到路径
-
-from astbot.core import Context, AstrBot, AstrMessageEvent
-from astbot.core.plugin import Plugin, PluginMeta
-from astbot.core.config import AstrBotConfig
-from astbot.core.astr import Star
-from astbot.core.message import Message, MessageSegment
-
+from astrbot.api.all import *  # 导入所有API
+from astrbot.api.event import filter  # 导入事件过滤器
+from astrbot.api.provider import ProviderRequest  # 导入provider请求
+import datetime
+import random
+import asyncio
+import json
+import time
 
 logger = logging.getLogger(__name__)
 
