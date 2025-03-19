@@ -1,0 +1,90 @@
+{
+    "time_settings": {
+        "description": "主动对话的时间设置",
+        "type": "object",
+        "items": {
+            "time_limit_enabled": {
+                "description": "是否启用时间段限制",
+                "type": "bool",
+                "hint": "启用后只在指定的开始时间和结束时间之间发送主动消息",
+                "default": true
+            },
+            "inactive_time_seconds": {
+                "description": "触发主动对话的用户不活跃时间(秒)",
+                "type": "int",
+                "hint": "用户多久没有消息后会触发主动对话，默认7200秒(2小时)",
+                "default": 7200
+            },
+            "max_response_delay_seconds": {
+                "description": "随机回复的最大延迟时间(秒)",
+                "type": "int",
+                "hint": "触发主动对话后，在多长时间内随机发送消息，默认3600秒(1小时)", 
+                "default": 3600
+            },
+            "activity_start_hour": {
+                "description": "活动开始时间(小时)",
+                "type": "int",
+                "hint": "每天几点开始允许发送主动消息，24小时制，默认8点",
+                "default": 8
+            },
+            "activity_end_hour": {
+                "description": "活动结束时间(小时)", 
+                "type": "int",
+                "hint": "每天几点停止发送主动消息，24小时制，默认23点",
+                "default": 23
+            },
+            "max_consecutive_messages": {
+                "description": "最大连续主动消息数",
+                "type": "int",
+                "hint": "无回复情况下最多连续发送多少条主动消息，默认3条",
+                "default": 3
+            }
+        }
+    },
+    "prompts": {
+        "description": "主动对话的问候语提示",
+        "type": "list",
+        "hint": "用于生成问候语的提示词列表，会随机选择其中之一",
+        "default": [
+            "嘿，好久不见啦！最近在忙什么呢？",
+            "看你好像很久没出现了，在干嘛呢？",
+            "悄悄冒个泡，想问问你最近怎么样？",
+            "突然想起你了，要不要来聊聊天？",
+            "好安静啊，要不要分享一下你的近况？",
+            "偷偷问一下，你这段时间都去哪里了呀？",
+            "感觉好久没看到你了，要不要来说说话？",
+            "我这个助手有点想你了，要不要聊聊天？",
+            "打个招呼！最近过得怎么样呀？",
+            "冒个泡问问，你最近有什么有趣的事情吗？"
+        ]
+    },
+    "monitored_groups": {
+        "description": "需要监控的群组配置",
+        "type": "object",
+        "items": {
+            "enabled": {
+                "description": "是否启用群监控",
+                "type": "bool",
+                "hint": "启用后只监控配置的群和用户",
+                "default": true
+            },
+            "groups": {
+                "description": "群组监控配置",
+                "type": "object",
+                "hint": "配置需要监控的群ID和对应的用户ID",
+                "default": {
+                    "group_id_1": {
+                        "user_ids": ["user1", "user2"],
+                        "nickname": "群名称1",
+                        "description": "群描述1"
+                    },
+                    "group_id_2": {
+                        "user_ids": ["user3", "user4"],
+                        "nickname": "群名称2",
+                        "description": "群描述2"
+                    }
+                }
+            }
+        }
+    }
+}
