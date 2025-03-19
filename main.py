@@ -9,10 +9,9 @@ import asyncio
 import json
 import time
 
-@register("initiative_group_dialogue", "作者名称", "群组用户主动对话插件,监控指定群内特定用户的活跃度,在用户长时间未发言时主动发起对话", "1.0.0")
-
 logger = logging.getLogger(__name__)
 
+@register("initiative_group_dialogue", "作者名称", "群组用户主动对话插件,监控指定群内特定用户的活跃度,在用户长时间未发言时主动发起对话", "1.0.0")
 class InitiativeGroupUserDialogue(Star):
     """
     群组用户主动对话插件
