@@ -2,13 +2,14 @@
 import logging
 from astrbot.api.all import *  # 导入所有API
 from astrbot.api.event import filter  # 导入事件过滤器
-from astrbot.api.plugin import PluginMeta
 from astrbot.api.provider import ProviderRequest  # 导入provider请求
 import datetime
 import random
 import asyncio
 import json
 import time
+
+@register("initiative_group_dialogue", "作者名称", "群组用户主动对话插件,监控指定群内特定用户的活跃度,在用户长时间未发言时主动发起对话", "1.0.0")
 
 logger = logging.getLogger(__name__)
 
