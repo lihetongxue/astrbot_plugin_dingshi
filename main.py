@@ -1,5 +1,5 @@
 # 在 /AstrBot/data/plugins/astbot_plugin_dingshi/main.py 中
-
+import logging
 from astrbot.api.all import *  # 导入所有API
 from astrbot.api.event import filter  # 导入事件过滤器
 from astrbot.api.provider import ProviderRequest  # 导入provider请求
