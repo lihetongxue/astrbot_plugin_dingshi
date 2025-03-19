@@ -2,6 +2,7 @@
 import logging
 from astrbot.api.all import *  # 导入所有API
 from astrbot.api.event import filter  # 导入事件过滤器
+from astrbot.api.plugin import PluginMeta
 from astrbot.api.provider import ProviderRequest  # 导入provider请求
 import datetime
 import random
