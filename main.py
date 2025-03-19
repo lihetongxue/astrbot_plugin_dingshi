@@ -3,11 +3,18 @@ import random
 import time
 from datetime import datetime
 import logging
-from ..core import Context, AstrBot, AstrMessageEvent
-from ..core.plugin import Plugin, PluginMeta
-from ..core.config import AstrBotConfig
-from ..core.astr import Star
-from ..core.message import Message, MessageSegment
+# 在 /AstrBot/data/plugins/astbot_plugin_dingshi/main.py 中
+
+# 修改导入语句
+import sys
+import os
+sys.path.append("/AstrBot")  # 添加项目根目录到路径
+
+from astbot.core import Context, AstrBot, AstrMessageEvent
+from astbot.core.plugin import Plugin, PluginMeta
+from astbot.core.config import AstrBotConfig
+from astbot.core.astr import Star
+from astbot.core.message import Message, MessageSegment
 
 
 logger = logging.getLogger(__name__)
