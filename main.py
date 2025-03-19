@@ -225,7 +225,7 @@ class InitiativeGroupUserDialogue(Star):
             return f"{base_prompt}\n(这是第{consecutive_count}次尝试联系 {user_id})"
         return base_prompt
 
-    async def cleanup(self):
+        async def cleanup(self):
         """清理插件资源"""
         # 取消定期检查任务
         if self._check_task:
@@ -250,16 +250,7 @@ class InitiativeGroupUserDialogue(Star):
         self.user_records.clear()
         self.users_received_initiative.clear()
 
-# 插件元数据
-plugin_meta = PluginMeta(
-    name='initiative_group_user_dialogue',
-    title='群组用户主动对话',
-    description='监控群内特定用户的活跃度并主动发起对话',
-    version='0.1.0',
-    author='Your Name',
-    plugin_type='star',
-    plugin_class=InitiativeGroupUserDialogue
-)
+
 
 # 导出插件
 Plugin = plugin_meta
