@@ -4,11 +4,12 @@ import time
 from datetime import datetime
 import logging
 from typing import Dict, Set
-from core import Context, AstrBot, AstrMessageEvent
-from core.plugin import Plugin, PluginMeta
-from core.config import AstrBotConfig
-from core.astr import Star
-from core.message import Message, MessageSegment
+from astbot.core import Context, AstrBot, AstrMessageEvent
+from astbot.core.plugin import Plugin, PluginMeta
+from astbot.core.config import AstrBotConfig
+from astbot.core.astr import Star
+from astbot.core.message import Message, MessageSegment
+
 
 logger = logging.getLogger(__name__)
 
