@@ -225,7 +225,7 @@ class InitiativeGroupUserDialogue(Star):
             return f"{base_prompt}\n(这是第{consecutive_count}次尝试联系 {user_id})"
         return base_prompt
 
-        async def cleanup(self):
+    async def cleanup(self):
         """清理插件资源"""
         # 取消定期检查任务
         if self._check_task:
