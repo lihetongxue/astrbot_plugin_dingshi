@@ -1,108 +1,37 @@
 {
-    "type": "object",
-    "properties": {
-        "time_settings": {
-            "type": "object",
-            "description": "主动对话的时间设置",
-            "properties": {
-                "time_limit_enabled": {
-                    "type": "boolean",
-                    "description": "是否启用时间段限制",
-                    "default": true
-                },
-                "inactive_time_seconds": {
-                    "type": "integer",
-                    "description": "触发主动对话的用户不活跃时间(秒)",
-                    "default": 7200
-                },
-                "max_response_delay_seconds": {
-                    "type": "integer",
-                    "description": "随机回复的最大延迟时间(秒)",
-                    "default": 3600
-                },
-                "activity_start_hour": {
-                    "type": "integer",
-                    "description": "活动开始时间(小时)",
-                    "default": 8
-                },
-                "activity_end_hour": {
-                    "type": "integer",
-                    "description": "活动结束时间(小时)",
-                    "default": 23
-                },
-                "max_consecutive_messages": {
-                    "type": "integer",
-                    "description": "最大连续主动消息数",
-                    "default": 3
-                }
-            },
-            "required": [
-                "time_limit_enabled",
-                "inactive_time_seconds",
-                "max_response_delay_seconds",
-                "activity_start_hour",
-                "activity_end_hour",
-                "max_consecutive_messages"
-            ]
-        },
-        "prompts": {
-            "type": "array",
-            "description": "主动对话的问候语提示",
-            "items": {
-                "type": "string"
-            },
-            "default": [
-                "嘿，好久不见啦！最近在忙什么呢？",
-                "看你好像很久没出现了，在干嘛呢？",
-                "悄悄冒个泡，想问问你最近怎么样？",
-                "突然想起你了，要不要来聊聊天？",
-                "好安静啊，要不要分享一下你的近况？",
-                "偷偷问一下，你这段时间都去哪里了呀？",
-                "感觉好久没看到你了，要不要来说说话？",
-                "我这个助手有点想你了，要不要聊聊天？",
-                "打个招呼！最近过得怎么样呀？",
-                "冒个泡问问，你最近有什么有趣的事情吗？"
-            ]
-        },
-        "monitored_groups": {
-            "type": "object",
-            "description": "需要监控的群组配置",
-            "properties": {
-                "enabled": {
-                    "type": "boolean",
-                    "description": "是否启用群监控",
-                    "default": true
-                },
-                "groups": {
-                    "type": "object",
-                    "description": "群组监控配置",
-                    "patternProperties": {
-                        "^.*$": {
-                            "type": "object",
-                            "properties": {
-                                "user_ids": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    },
-                                    "description": "需要监控的用户ID列表"
-                                },
-                                "nickname": {
-                                    "type": "string",
-                                    "description": "群名称"
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "description": "群描述"
-                                }
-                            },
-                            "required": ["user_ids"]
-                        }
-                    }
-                }
-            },
-            "required": ["enabled", "groups"]
-        }
+    "time_settings": {
+        "time_limit_enabled": true,
+        "inactive_time_seconds": 7200,
+        "max_response_delay_seconds": 3600,
+        "activity_start_hour": 8,
+        "activity_end_hour": 23,
+        "max_consecutive_messages": 3
     },
-    "required": ["time_settings", "prompts", "monitored_groups"]
+    "prompts": [
+        "嘿，好久不见啦！最近在忙什么呢？",
+        "看你好像很久没出现了，在干嘛呢？",
+        "悄悄冒个泡，想问问你最近怎么样？",
+        "突然想起你了，要不要来聊聊天？",
+        "好安静啊，要不要分享一下你的近况？",
+        "偷偷问一下，你这段时间都去哪里了呀？",
+        "感觉好久没看到你了，要不要来说说话？",
+        "我这个助手有点想你了，要不要聊聊天？",
+        "打个招呼！最近过得怎么样呀？",
+        "冒个泡问问，你最近有什么有趣的事情吗？"
+    ],
+    "monitored_groups": {
+        "enabled": true,
+        "groups": {
+            "group1": {
+                "user_ids": ["user1", "user2", "user3"],
+                "nickname": "技术交流群",
+                "description": "用于技术讨论和分享的群组"
+            },
+            "group2": {
+                "user_ids": ["user4", "user5"],
+                "nickname": "日常聊天群",
+                "description": "用于日常交流的群组"
+            }
+        }
+    }
 }
