@@ -252,5 +252,4 @@ class InitiativeGroupUserDialogue(Star):
 
 
 
-# 导出插件
-Plugin = plugin_meta
+
