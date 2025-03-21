@@ -1,57 +1,35 @@
 {
-    "type": "object",
-    "properties": {
-        "time_settings": {
-            "type": "object",
-            "properties": {
-                "time_limit_enabled": {"type": "boolean", "default": true},
-                "inactive_time_seconds": {"type": "integer", "default": 7200},
-                "max_response_delay_seconds": {"type": "integer", "default": 3600},
-                "activity_start_hour": {"type": "integer", "default": 8},
-                "activity_end_hour": {"type": "integer", "default": 23},
-                "max_consecutive_messages": {"type": "integer", "default": 3}
-            }
-        },
-        "prompts": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "default": [
-                "嘿，好久不见啦！最近在忙什么呢？",
-                "看你好像很久没出现了，在干嘛呢？",
-                "悄悄冒个泡，想问问你最近怎么样？",
-                "突然想起你了，要不要来聊聊天？",
-                "好安静啊，要不要分享一下你的近况？",
-                "偷偷问一下，你这段时间都去哪里了呀？",
-                "感觉好久没看到你了，要不要来说说话？",
-                "我这个助手有点想你了，要不要聊聊天？",
-                "打个招呼！最近过得怎么样呀？",
-                "冒个泡问问，你最近有什么有趣的事情吗？"
-            ]
-        },
-        "monitored_groups": {
-            "type": "object",
-            "properties": {
-                "enabled": {"type": "boolean", "default": true},
-                "groups": {
-                    "type": "object",
-                    "patternProperties": {
-                        ".*": {
-                            "type": "object",
-                            "properties": {
-                                "user_ids": {
-                                    "type": "array",
-                                    "items": {"type": "string"}
-                                },
-                                "nickname": {"type": "string"},
-                                "description": {"type": "string"}
-                            },
-                            "required": ["user_ids", "nickname", "description"]
-                        }
-                    }
-                }
-            }
-        }
-    }
+  "user_timeout": {
+    "title": "用户沉默时间",
+    "type": "int",
+    "default": 86400,
+    "minimum": 3600,
+    "description": "用户多少秒未发言触发提醒"
+  },
+  "remind_cooldown": {
+    "title": "提醒冷却时间",
+    "type": "int",
+    "default": 7200,
+    "description": "对同一用户两次提醒的最小间隔"
+  },
+  "working_hours": {
+    "title": "工作时间段",
+    "type": "array",
+    "items": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 23
+    },
+    "default": [10, 14, 19],
+    "description": "允许发送提醒的小时列表"
+  },
+  "exclude_users": {
+    "title": "排除用户",
+    "type": "array",
+    "items": {
+      "type": "string"
+    },
+    "default": ["weixin"],
+    "description": "需要排除监控的微信ID"
+  }
 }
